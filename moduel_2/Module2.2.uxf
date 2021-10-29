@@ -1,0 +1,32 @@
+<diagram program="umletino" version="14.4.0-SNAPSHOT"><zoom_level>10</zoom_level><element><id>UMLClass</id><coordinates><x>270</x><y>120</y><w>160</w><h>110</h></coordinates><panel_attributes>_Customer_
+--
+_id  = "123456"
+first_name = "James"
+last_name = "Smith"
+date_of_birth = "7/16/77"
+user_name = "Jsmith"</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>600</x><y>290</y><w>210</w><h>160</h></coordinates><panel_attributes>_Invoice_
+--
+_id = "789456 "
+date_created = "10/12/21 "
+date_shipped = " 10/27/21 "
+subtotal = " $200.00 "
+--
+_id = "456789"
+date_created = "10/12/21 "
+date_shipped = " 10/27/21 "
+subtotal = " $100.00 "</panel_attributes><additional_attributes></additional_attributes></element><element><id>UMLClass</id><coordinates><x>640</x><y>630</y><w>210</w><h>230</h></coordinates><panel_attributes>_Line_Items_
+--
+_id = "741852 "
+name = "Juice "
+price = "$150.00 "
+quantity = " 1" 
+--
+_id = "852963 "
+name = "Fruit "
+price = "$50.00 "
+quantity = "1 " 
+--
+_id = "963741 "
+name = "Special "
+price = "$100.00 "
+quantity = " 1" </panel_attributes><additional_attributes></additional_attributes></element><element><id>Relation</id><coordinates><x>420</x><y>170</y><w>300</w><h>140</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-</panel_attributes><additional_attributes>280;120;10;10</additional_attributes></element><element><id>Relation</id><coordinates><x>710</x><y>440</y><w>40</w><h>210</h></coordinates><panel_attributes>lt=&lt;&lt;&lt;&lt;-&gt;&gt;&gt;&gt;</panel_attributes><additional_attributes>20;190;10;10</additional_attributes></element></diagram>
