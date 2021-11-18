@@ -115,6 +115,6 @@ loki_student_id = students.insert_one(loki).inserted_id
 print("  Inserted student record Loki Odinson into the students collection with document_id " + str(loki_student_id))
 # Display bruce student insert
 bruce_student_id = students.insert_one(bruce).inserted_id
-print("  Inserted student record Bruce Banner into the students collection with document_id " + str(loki_student_id))
+print("  Inserted student record Bruce Banner into the students collection with document_id " + str(bruce_student_id))
 # print the end statement
 input("\n\n  End of program, press any key to exit... ")
