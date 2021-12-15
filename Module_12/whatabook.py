@@ -22,7 +22,7 @@ config = {
 def show_menu():
     print("\n  -- Main Menu --")
 
-    print("    1. View Books\n    2. View Store Locations\n    3. My Account\n    4. Exit Program")
+    print("    1. View Books\n    2. View Store Locations\n    3. View Users\n    4. Exit Program")
 
     try:
         userInput = int(input('      <Example enter: 1 to see all of the book listings>: '))
@@ -148,6 +148,11 @@ try:
         # if the user selects option 3, call the validate_user method to validate the entered user_id 
         # call the show_account_menu() to show the account settings menu
         if user_selection == 3:
+                    #getting and printing user details
+            cursor.execute("SELECT user_id, first_name, last_name FROM user")
+            users = cursor.fetchall()
+            for user in users:
+                print(" \n User ID: {}\n  First Name: {}\n  Last Name: {}\n".format(user[0], user[1], user[2]))
             my_user_id = validate_user()
             account_option = main_menu()
 
