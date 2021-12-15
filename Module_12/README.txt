@@ -8,7 +8,7 @@ Hello - Please follow these steps to run the project
 
     ZIP FILE CONTENTS
     -- Test Case Template (Jimmy_Test Case Template_12_14_21.docx)
-    -- README.md
+    -- README.TXT
     -- whatabook.py
     -- whatabook_init.sql
 
