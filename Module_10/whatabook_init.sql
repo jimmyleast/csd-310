@@ -81,22 +81,22 @@ INSERT INTO book(book_name, author, details)
 INSERT INTO book(book_name, author, details)
     VALUES('War and Peace', 'Leo Tolstoy', "Epic in scale, War and Peace delineates in graphic detail events leading up to Napoleons invasion of Russia, and the impact of the Napoleonic era on Tsarist society, as seen through the eyes");
 
-INSERT INTO book(book_name, author)
+INSERT INTO book(book_name, author, details)
     VALUES('The Great Gatsby', 'F. Scott Fitzgerald', 'The novel chronicles an era that Fitzgerald himself dubbed the Jazz Age". Following the shock and chaos of World War I American society enjoyed unprecedented levels of prosperity during the "roar"');
 
-INSERT INTO book(book_name, author)
+INSERT INTO book(book_name, author, details)
     VALUES('Lolita', 'Vladimir Nabokov', 'The book is internationally famous for its innovative style and infamous for its controversial subject: the protagonist and unreliable narrator, middle aged Humbert Humbert, becomes obsessed');
 
-INSERT INTO book(book_name, author)
+INSERT INTO book(book_name, author, details)
     VALUES('Middlemarch', 'George Eliot', 'Middlemarch: A Study of Provincial Life is a novel by George Eliot, the pen name of Mary Anne Evans, later Marian Evans. It is her seventh novel, begun in 1869 and then put aside during the final');
 
-INSERT INTO book(book_name, author)
+INSERT INTO book(book_name, author, details)
     VALUES(' The Adventures of Huckleberry Finn', ' Mark Twain','Revered by all of the towns children and dreaded by all of its mothers, Huckleberry Finn is indisputably the most appealing child-hero in American literature. Unlike the tall-tale, idyllic world');
 
-INSERT INTO book(book_name, author)
+INSERT INTO book(book_name, author, details)
     VALUES('In Search of Lost Time', 'Marcel Proust','Swanns Way, the first part of A la recherche de temps perdu, Marcel Prousts seven-part cycle, was published in 1913. In it, Proust introduces the themes that run through the entire work');
 
-INSERT INTO book(book_name, author)
+INSERT INTO book(book_name, author, details)
     VALUES('The Stories of Anton Chekhov', 'Anton Chekhov','Anton Pavlovich Chekhov was a Russian short-story writer, playwright and physician, considered to be one of the greatest short-story writers in the history of world literature');
 
 /*

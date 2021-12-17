@@ -1,7 +1,7 @@
 """ 
     Title: what_a_book.py
     Author: Jimmy Easter
-    Date: 212/10/2021
+    Date: 12/10/2021
     Description: WhatABook program; Console program that interfaces with a MySQL database
 """
 
@@ -19,7 +19,7 @@ config = {
     "raise_on_warnings": True
 }
 
-def show_menu():
+def showMenu():
     print("\n  -- Main Menu --")
 
     print("    1. View Books\n    2. View Store Locations\n    3. View Users\n    4. Exit Program")
@@ -33,12 +33,12 @@ def show_menu():
 
         sys.exit(0)
 
-def view_books(_cursor):
+def viewBooks(_cursor):
     # inner join query 
-    _cursor.execute("SELECT book_id, book_name, author, details from book")
+    cursor.execute("SELECT book_id, book_name, author, details from book")
 
     # get the results from the cursor object 
-    books = _cursor.fetchall()
+    books = cursor.fetchall()
 
     print("\n  -- DISPLAYING BOOK LISTING --")
     
@@ -46,17 +46,17 @@ def view_books(_cursor):
     for book in books:
         print("  Book Name: {}\n  Author: {}\n  Details: {}\n".format(book[0], book[1], book[2]))
 
-def view_locations(_cursor):
-    _cursor.execute("SELECT store_id, locale from store")
+def viewLocations(cursor):
+    cursor.execute("SELECT store_id, locale from store")
 
-    locations = _cursor.fetchall()
+    locations = cursor.fetchall()
 
     print("\n  -- DISPLAYING STORE LOCATIONS --")
 
     for location in locations:
         print("  Locale: {}\n".format(location[1]))
 
-def validate_user():
+def validateUser():
     """ validate the users ID """
 
     try:
@@ -72,7 +72,7 @@ def validate_user():
 
         sys.exit(0)
 
-def main_menu():
+def mainMenu():
     """ display the users account menu """
 
     try:
@@ -86,7 +86,7 @@ def main_menu():
 
         sys.exit(0)
 
-def view_wishlist(cursor, user_id):
+def viewWishlist(cursor, user_id):
     """ query the database for a list of books added to the users wishlist """
 
     cursor.execute("SELECT user.user_id, user.first_name, user.last_name, book.book_id, book.book_name, book.author " + 
@@ -102,7 +102,7 @@ def view_wishlist(cursor, user_id):
     for book in wishlist:
         print("        Book Name: {}\n        Author: {}\n".format(book[4], book[5]))
 
-def available_books(cursor, user_id):
+def availableBooks(cursor, user_id):
     """ query the database for a list of books not in the users wishlist """
 
     query = ("SELECT book_id, book_name, author, details "
@@ -120,8 +120,8 @@ def available_books(cursor, user_id):
     for book in books_to_add:
         print("        Book Id: {}\n        Book Name: {}\n".format(book[0], book[1]))
 
-def add_book_to_wishlist(_cursor, _user_id, _book_id):
-    _cursor.execute("INSERT INTO wishlist(user_id, book_id) VALUES({}, {})".format(_user_id, _book_id))
+def addBook(cursor, user_id, book_id):
+    cursor.execute("INSERT INTO wishlist(user_id, book_id) VALUES({}, {})".format(user_id, book_id))
 
 try:
     """ try/catch block for handling potential MySQL database errors """ 
@@ -132,18 +132,18 @@ try:
 
     print("\n  Welcome to the WhatABook Application! ")
 
-    user_selection = show_menu() # show the main menu 
+    user_selection = showMenu() # show the main menu 
 
     # while the user's selection is not 4
     while user_selection != 4:
 
         # if the user selects option 1, call the show_books method and display the books
         if user_selection == 1:
-            view_books(cursor)
+            viewBooks(cursor)
 
         # if the user selects option 2, call the show_locations method and display the configured locations
         if user_selection == 2:
-            view_locations(cursor)
+            viewLocations(cursor)
 
         # if the user selects option 3, call the validate_user method to validate the entered user_id 
         # call the show_account_menu() to show the account settings menu
@@ -153,8 +153,8 @@ try:
             users = cursor.fetchall()
             for user in users:
                 print(" \n User ID: {}\n  First Name: {}\n  Last Name: {}\n".format(user[0], user[1], user[2]))
-            my_user_id = validate_user()
-            account_option = main_menu()
+            my_user_id = validateUser()
+            account_option = mainMenu()
 
             # while account option does not equal 3
             while account_option != 3:
@@ -162,20 +162,20 @@ try:
                 # if the use selects option 1, call the show_wishlist() method to show the current users 
                 # configured wishlist items 
                 if account_option == 1:
-                    view_wishlist(cursor, my_user_id)
+                    viewWishlist(cursor, my_user_id)
 
                 # if the user selects option 2, call the show_books_to_add function to show the user 
                 # the books not currently configured in the users wishlist
                 if account_option == 2:
 
                     # show the books not currently configured in the users wishlist
-                    available_books(cursor, my_user_id)
+                    availableBooks(cursor, my_user_id)
 
                     # get the entered book_id 
                     book_id = int(input("\n        Enter the id of the book you want to add: "))
                     
                     # add the selected book the users wishlist
-                    add_book_to_wishlist(cursor, my_user_id, book_id)
+                    addBook(cursor, my_user_id, book_id)
 
                     db.commit() # commit the changes to the database 
 
@@ -186,14 +186,14 @@ try:
                     print("\n      Invalid option, please retry...")
 
                 # show the account menu 
-                account_option = main_menu()
+                account_option = mainMenu()
         
         # if the user selection is less than 0 or greater than 4, display an invalid user selection
         if user_selection < 0 or user_selection > 4:
             print("\n      Invalid option, please retry...")
             
         # show the main menu
-        user_selection = show_menu()
+        user_selection = showMenu()
 
     print("\n\n  Program terminated...")
 
